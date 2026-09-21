@@ -12,22 +12,27 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@jakarta.persistence.Entity
-@Table(name="user_credentials")
-public class user_credentials {
+@Entity
+@Table(name = "user_credentials")
+public class UserCredentials {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long credential_id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "credential_id")
+    private Long credentialId;
 
+    @OneToOne(optional = false)
     @JoinColumn(name = "customer_id", nullable = false, unique = true)
-    private int   customer_id ;
-    private String password_hash ;
-    private LocalDateTime created_at;
+    private User user;
+
+    @Column(name = "password_hash", nullable = false)
+    private String passwordHash;
+
+    @Column(name = "created_at", updatable = false)
+    private LocalDateTime createdAt;
 
     @PrePersist
-    public void prePersist(){
-        this.created_at = LocalDateTime.now();
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
     }
-
 }

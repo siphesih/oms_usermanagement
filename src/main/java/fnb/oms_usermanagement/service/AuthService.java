@@ -6,10 +6,7 @@ import fnb.oms_usermanagement.dto.RegisterRequest;
 import fnb.oms_usermanagement.dto.RegisterResponse;
 
 public interface AuthService {
-    RegisterResponse register(RegisterRequest request);
-    LoginResponse login(LoginRequest request);
 
-    RegisterResponse register(RegisterRequest request);
-
-    LoginResponse login(LoginRequest request);
+    RegisterResponse register(RegisterRequest request);  // ← only once
+    LoginResponse login(LoginRequest request);           // ← only once
 }
