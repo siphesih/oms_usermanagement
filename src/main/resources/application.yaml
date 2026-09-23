@@ -10,7 +10,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
@@ -22,3 +22,4 @@ server:
 jwt:
   secret: OMS_FNB_Super_Secret_Key_2026_Change_This_In_Production
   expiration: 86400000
+
