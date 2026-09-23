@@ -1,53 +1,3 @@
-/*package fnb.oms_usermanagement.service.impl;
-
-
-import fnb.oms_usermanagement.dto.LoginRequest;
-import fnb.oms_usermanagement.dto.LoginResponse;
-import fnb.oms_usermanagement.dto.RegisterRequest;
-import fnb.oms_usermanagement.dto.RegisterResponse;
-import fnb.oms_usermanagement.repository.UserCredentialsRepository;
-import fnb.oms_usermanagement.repository.UserRepository;
-import fnb.oms_usermanagement.service.AuthService;
-import lombok.RequiredArgsConstructor;
-import org.apache.catalina.User;
-import org.springframework.stereotype.Service;
-
-@Service
-@RequiredArgsConstructor
-public class AuthServiceImpl implements AuthService {
-
-    private final UserRepository userRepository;
-    private final UserCredentialsRepository userCredentialsRepository;
-    //private final PasswordEncoder passwordEncoder;
-
-    @Override
-    public RegisterResponse register(RegisterRequest request) {
-
-        if(userRepository.findByEmail(request.getEmail()).isPresent()) {
-            throw new IllegalStateException("Email already exists");
-        }
-
-        if(!request.getPassword().equals(request.getConfirmPassword())) {
-            throw new IllegalStateException("Passwords do not match");
-        }
-
-        User user = User.builder();
-
-
-
-
-
-
-        return null;
-    }
-
-    @Override
-    public LoginResponse login(LoginRequest request) {
-        return null;
-    }
-}*/
-
-
 package fnb.oms_usermanagement.service.impl;
 
 import fnb.oms_usermanagement.dto.LoginRequest;
@@ -131,7 +81,7 @@ public class AuthServiceImpl implements AuthService {
             throw new RuntimeException("Invalid email or password.");
         }
 
-        // 4. Return response (JWT token added later in security step)
+        // 4. Return response
         return LoginResponse.builder()
                 .customerId(user.getCustomerId())
                 .firstName(user.getFirstName())
